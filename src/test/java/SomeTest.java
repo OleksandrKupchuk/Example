@@ -32,5 +32,6 @@ public class SomeTest extends Initialization {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/");
+        driver.quit();
     }
 }
