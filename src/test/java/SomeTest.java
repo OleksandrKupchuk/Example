@@ -9,8 +9,11 @@ import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.DriverManager;
 
 public class SomeTest extends Initialization {
@@ -28,9 +31,11 @@ public class SomeTest extends Initialization {
 //    }
 
     @Test
-    public void two() {
+    public void two() throws MalformedURLException {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+//        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        WebDriver driver = new RemoteWebDriver(new URL("https://7f3d-91-233-99-229.ngrok-free.app/wd/hub"), chromeOptions);
         driver.get("https://the-internet.herokuapp.com/");
         driver.quit();
     }
